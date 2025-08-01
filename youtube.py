@@ -6,7 +6,7 @@ import aiosqlite
 from fake_useragent import UserAgent
 ## note: need to use `poetry shell` in order to access lxml
 
-channel_ids = {'Taylor Swift': 'UCqECaJ8Gagnn7YCbPEzWH6g', 'RecordingAcademy': 'UCq4isO8ZYOZfmvGJ-_1UdIA'}  
+channel_ids = {'5 min TJ': 'UCTkn7SuQfrSIvTs8DR1TuZw'}  
 # name of channel is not actually used in the script
 # channel ID's can be found on desktop easily
 # sometimes its in the url, e.g https://www.youtube.com/channel/UCqECaJ8Gagnn7YCbPEzWH6g - UCqECaJ8Gagnn7YCbPEzWH6g is the ID
@@ -19,15 +19,15 @@ ua = UserAgent(platforms='desktop')
 async def create_webhook(title, link, youtube_name, date):
     async with aiohttp.ClientSession() as session:
         # url is the discord webhook url, this allows us to post
-        discord_webhook_url = # enter a webhook url here
+        discord_webhook_url = https://discord.com/api/webhooks/1400670049148207194/QA0HcirgEBHmtlBiassvgs5HF37cdoOBeJWMc-NJ9vSBMdyDiQc_as9bn_5jM8FmICUZ
         webhook = Webhook.from_url(discord_webhook_url, session=session)
 
         # https://docs.disnake.dev/en/latest/api/webhooks.html#disnake.Webhook.send
         # username = name of webhook user
         ## await send(content=..., *, username=..., avatar_url=..., tts=False, ephemeral=..., suppress_embeds=..., flags=..., file=..., files=..., embed=..., embeds=..., allowed_mentions=..., view=..., components=..., thread=..., thread_name=..., applied_tags=..., wait=False, delete_after=..., poll=...)
 
-        webhook_username = YouTube Bot # enter name of the Webhook user, can be anything (in this case, it's YouTube Bot)
-        webhook_avatar = "https://i.imgur.com/22Q9QyJ.png" # enter a url to a pic if you want a avatar
+        webhook_username = TJ_youtube # enter name of the Webhook user, can be anything (in this case, it's YouTube Bot)
+        webhook_avatar = "https://imgur.com/a/5l3o7k5" # enter a url to a pic if you want a avatar
         await webhook.send(content=f"NEW UPLOAD FROM {youtube_name}!\n'{title}'\n{link}\n{date}", username=webhook_username, avatar_url=webhook_avatar)
         await asyncio.sleep(3)
 
@@ -52,7 +52,7 @@ async def channel_monitor():
                     'User-Agent': ua.random
                 }
                 await asyncio.sleep(18)
-                async with session.get(f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_ids[chan_id]}", headers=HEADERS) as r:
+                async with session.get(f"https://www.youtube.com/feeds/videos.xml?channel_id={UCTkn7SuQfrSIvTs8DR1TuZw[UCTkn7SuQfrSIvTs8DR1TuZw]}", headers=HEADERS) as r:
                     soup = BeautifulSoup(await r.text(), "lxml")  # grabs the entire html response
 
                     for entry in soup.find_all("entry"):
